@@ -7,7 +7,13 @@ const Header: React.FC = () => {
     <div className='
       flex
       items-center
-      justify-between
+      justify-evenly
+      sticky
+      pt-1
+      pb-1
+      border-b-1
+      border-gray-200
+      w-full
     '>
       {/* Left section */}
       <HeaderLeft />
