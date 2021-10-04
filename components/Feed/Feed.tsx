@@ -2,7 +2,10 @@ import React from  'react';
 
 const Feed: React.FC = () => {
   return(
-    <div className='bg-blue-200'>
+    <div className='
+      flex-7
+      bg-blue-200
+    '>
       Feed
     </div>
   );

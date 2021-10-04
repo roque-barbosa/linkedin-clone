@@ -9,7 +9,8 @@ module.exports = {
       "cdn-icons-png.flaticon.com",
       "compassionate-leakey-e9b16b.netlify.app",
       "thumbs.dreamstime.com",
-      "images.unsplash.com"
+      "images.unsplash.com",
+      "publicdomainpictures.net"
     ]
   }
 }

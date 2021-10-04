@@ -1,13 +1,12 @@
 import type { NextPage } from 'next'
 import Body from '../components/Body/Body'
-import Feed from '../components/Feed/Feed'
 import Header from '../components/Header/Header'
-import Sidebar from '../components/Sidebar/Sidebar'
-import Widgets from '../components/Widgets/Widgets'
 
 const Home: NextPage = () => {
   return (
-    <div className=''>
+    <div className='
+      bg-gray-100
+    '>
       {/* Header */}
       <Header />
 
