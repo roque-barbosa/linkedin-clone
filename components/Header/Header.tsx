@@ -12,6 +12,7 @@ const Header: React.FC = () => {
       pt-1
       pb-1
       border-b-1
+      bg-white
       border-gray-200
       w-full
     '>

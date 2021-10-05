@@ -6,6 +6,7 @@ import Widgets from '../Widgets/Widgets';
 const Body: React.FC = () => {
   return (
     <div className='
+      mt-2
       ml-10
       flex
       justify-between
