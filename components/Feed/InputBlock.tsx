@@ -7,8 +7,22 @@ import {
   AnnotationIcon
 } from '@heroicons/react/solid';
 import InputOption from './InputOption';
+import { useSelector, useDispatch } from "react-redux";
+import { postsUpdateList } from '../../store/actions/posts'
 
 const InputBlock: React.FC = () => {
+
+  const dispatch = useDispatch();
+  const posts = useSelector((state:any) => state.posts);
+
+  const sendPost = (event: any) => {
+    event.preventDefault();
+    dispatch(postsUpdateList([...posts, {name: 'b', description: 'b', message: 'b', photoUrl: 'b'}]))
+
+    console.log(posts)
+    
+  }
+
   return (
     <div className='
       border-2
@@ -40,7 +54,7 @@ const InputBlock: React.FC = () => {
             outline-none
             font-semibold
           '/>
-          <button hidden type='submit'>Send</button>
+          <button hidden onClick={sendPost} type='submit'>Send</button>
         </form>
       </div>
 

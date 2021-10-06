@@ -17,7 +17,7 @@ const InputOption: React.FC<InputOptionProps> = ({Icon, text, color}) => {
     hover:bg-gray-100
     hover: rounded-2xl
     '>
-      {Icon && (<Icon className={`w-7 h-7 ml-1 ` + color}/>)}
+      {Icon && (<Icon className={`w-6 h-6 ml-1 md:w-7 md:h-7 ` + color}/>)}
       <h4 className='
         hidden
         lg:flex
