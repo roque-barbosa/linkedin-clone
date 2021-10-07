@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {
   PencilIcon,
   CameraIcon,
@@ -7,21 +7,40 @@ import {
   AnnotationIcon
 } from '@heroicons/react/solid';
 import InputOption from './InputOption';
-import { useSelector, useDispatch } from "react-redux";
-import { postsUpdateList } from '../../store/actions/posts'
+import {
+  useSelector,
+  useDispatch
+} from "react-redux";
+import { postsUpdateList } from '../../store/actions/posts';
+import {
+  collection,
+  addDoc,
+  serverTimestamp 
+} from 'firebase/firestore';
+import { db } from '../../FirebaseConfig';
 
 const InputBlock: React.FC = () => {
 
-  const dispatch = useDispatch();
-  const posts = useSelector((state:any) => state.posts);
+  //const dispatch = useDispatch();
+  //const posts = useSelector((state:any) => state.posts);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const sendPost = (event: any) => {
     event.preventDefault();
-    dispatch(postsUpdateList([...posts, {name: 'b', description: 'b', message: 'b', photoUrl: 'b'}]))
 
-    console.log(posts)
-    
-  }
+    if (!inputRef.current?.value) return;
+
+    addDoc(collection(db, 'posts'), {
+      name: 'Roque Barbosa',
+      description: 'This is a test',
+      message: inputRef.current.value,
+      photoUrl: '',
+      timestamp: serverTimestamp(),
+    });
+
+    //dispatch(postsUpdateList([...posts, {name: 'c', description: 'c', message: 'c', photoUrl: 'c'}]))
+    inputRef.current.value = "";
+  };
 
   return (
     <div className='
@@ -47,7 +66,7 @@ const InputBlock: React.FC = () => {
           flex
           w-full
         '>
-          <input type="text" className='
+          <input ref={inputRef} type="text" className='
             border-none
             flex-1
             ml-3
