@@ -10,7 +10,8 @@ module.exports = {
       "compassionate-leakey-e9b16b.netlify.app",
       "thumbs.dreamstime.com",
       "images.unsplash.com",
-      "publicdomainpictures.net"
+      "publicdomainpictures.net",
+      "marcas-logos.net"
     ]
   }
 }

@@ -10,4 +10,14 @@
     w-7
     bg-transparent
   }
+
+  .loginInput {
+    @apply
+    text-lg
+    pl-3
+    h-12
+    mb-3
+    rounded-sm
+    border-2
+  }
 }
