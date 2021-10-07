@@ -9,6 +9,8 @@ const Sidebar: React.FC = () => {
       flex-3
     '>
       <div className='
+        sticky
+        top-2
         rounded-2xl
         border-2
         bg-white
