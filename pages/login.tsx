@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { auth } from '../FirebaseConfig'
 import {
   createUserWithEmailAndPassword,
-  updateProfile
+  updateProfile,
+  signInWithEmailAndPassword
 } from 'firebase/auth';
 import {
   useDispatch,
@@ -49,7 +50,16 @@ const Login: NextPage = () => {
   
   const login = (event: React.MouseEvent) => {
     event.preventDefault();
-    console.log('Hi')
+    signInWithEmailAndPassword(auth, email, password)
+    .then(userAuth => {
+      dispatch(userLogin({
+        email: userAuth.user.email,
+        uid: userAuth.user.uid,
+        displayName: name,
+        photoUrl: userAuth.user.photoURL,
+      }));
+    })
+    .catch(err => alert(err.message))
   };
 
   useEffect(() => {

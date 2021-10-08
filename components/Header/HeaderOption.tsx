@@ -5,11 +5,12 @@ interface HeaderOptionProps {
   Icon?: any
   title: string
   avatar?: any
+  onClick?: () => void
 }
 
-const HeaderOption: React.FC<HeaderOptionProps> = ({avatar, Icon, title}) => {
+const HeaderOption: React.FC<HeaderOptionProps> = ({avatar, Icon, title, onClick}) => {
   return (
-    <div className='
+    <div onClick={onClick} className='
       flex-col
       w-15
       h-10

@@ -11,7 +11,8 @@ module.exports = {
       "thumbs.dreamstime.com",
       "images.unsplash.com",
       "publicdomainpictures.net",
-      "marcas-logos.net"
+      "marcas-logos.net",
+      "imagens.brasil.elpais.com",
     ]
   }
 }

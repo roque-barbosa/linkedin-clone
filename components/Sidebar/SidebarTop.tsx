@@ -1,7 +1,11 @@
 import React from 'react';
 import Image from 'next/image'
+import { useSelector } from 'react-redux';
 
 const SidebarTop: React.FC = () => {
+
+  const user = useSelector((state: any) => state.user)
+
   return (
     <div className='
       flex-col
@@ -29,7 +33,7 @@ const SidebarTop: React.FC = () => {
         <Image className='
           rounded-full
           '
-          src='https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwbG92ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'
+          src={user.photoUrl}
           width={50}
           height={50}
           layout='fixed'
@@ -41,7 +45,7 @@ const SidebarTop: React.FC = () => {
         text-gray-500
         text-lg
       '>
-        Doguinho
+        {user.displayName}
       </h2>
       <h4 className='
         flex
@@ -49,7 +53,7 @@ const SidebarTop: React.FC = () => {
         text-gray-500
         text-sm
       '>
-        dog@doguinho.com
+        {user.email}
       </h4>
     </div>
   );

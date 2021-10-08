@@ -7,8 +7,21 @@ import {
   BellIcon,
   UserGroupIcon
 } from '@heroicons/react/solid'
+import { useDispatch, useSelector } from 'react-redux';
+import { userLogout } from '../../store/actions/user';
+import { auth } from '../../FirebaseConfig'
 
 const HeaderRight: React.FC = () => {
+
+  const user = useSelector((state: any) => state.user)
+
+  const dispatch = useDispatch();
+
+  const logoutOfApp = () => {
+    dispatch(userLogout());
+    auth.signOut();
+  }
+
   return (
     <div className='
       flex
@@ -20,8 +33,9 @@ const HeaderRight: React.FC = () => {
       <HeaderOption title='Messaging' Icon={ChatIcon} />
       <HeaderOption title='Notifications' Icon={BellIcon} />
       <HeaderOption
+        onClick={logoutOfApp}
         title='Me'
-        avatar='https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwbG92ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'
+        avatar={user.photoUrl}
       />
     </div>
   );
