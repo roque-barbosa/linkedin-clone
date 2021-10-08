@@ -45,7 +45,7 @@ const Feed: React.FC = () => {
         name={post.name}
         description={post.description}
         message={post.message}
-        photoUrl='https://images.unsplash.com/photo-1596492784531-6e6eb5ea9993?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8ZG9nJTIwbG92ZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'
+        photoUrl={post.photoUrl}
       />
       ))}
     </div>

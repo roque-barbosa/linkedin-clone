@@ -8,10 +8,8 @@ import {
 } from '@heroicons/react/solid';
 import InputOption from './InputOption';
 import {
-  useSelector,
-  useDispatch
+  useSelector
 } from "react-redux";
-import { postsUpdateList } from '../../store/actions/posts';
 import {
   collection,
   addDoc,
@@ -21,8 +19,8 @@ import { db } from '../../FirebaseConfig';
 
 const InputBlock: React.FC = () => {
 
-  //const dispatch = useDispatch();
-  //const posts = useSelector((state:any) => state.posts);
+  const user = useSelector((state: any) => state.user)
+
   const inputRef = useRef<HTMLInputElement>(null);
 
   const sendPost = (event: any) => {
@@ -31,14 +29,13 @@ const InputBlock: React.FC = () => {
     if (!inputRef.current?.value) return;
 
     addDoc(collection(db, 'posts'), {
-      name: 'Roque Barbosa',
+      name: user.displayName,
       description: 'This is a test',
       message: inputRef.current.value,
-      photoUrl: '',
+      photoUrl: user.photoUrl,
       timestamp: serverTimestamp(),
     });
 
-    //dispatch(postsUpdateList([...posts, {name: 'c', description: 'c', message: 'c', photoUrl: 'c'}]))
     inputRef.current.value = "";
   };
 
