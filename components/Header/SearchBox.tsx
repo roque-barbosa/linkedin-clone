@@ -15,12 +15,15 @@ const SearchBox: React.FC = () => {
     '>
       <Search />
       <input type="text" placeholder='Search' className='
+        hidden
+        md:flex
         ml-1
         bg-transparent
         rounded-full
         outline-none
         placeholder-gray-500
         h-22
+
       '/>
     </div>
   );

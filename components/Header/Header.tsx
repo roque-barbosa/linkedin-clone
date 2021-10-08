@@ -16,6 +16,7 @@ const Header: React.FC = () => {
       bg-white
       border-gray-200
       w-full
+      z-50
     '>
       {/* Left section */}
       <HeaderLeft />

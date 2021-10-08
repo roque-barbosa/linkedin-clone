@@ -6,7 +6,8 @@ import SidebarBottom from './SidebarBottom';
 const Sidebar: React.FC = () => {
   return (
     <div className='
-      flex-3
+      flex-2
+      max-w-xs
     '>
       <div className='
         sticky

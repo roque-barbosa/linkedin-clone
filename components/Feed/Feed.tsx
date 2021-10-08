@@ -37,6 +37,7 @@ const Feed: React.FC = () => {
       flex-7
       ml-3
       mr-5
+      max-w-3xl
     '>
       <InputBlock />
 
