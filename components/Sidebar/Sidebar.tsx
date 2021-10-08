@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
     '>
       <div className='
         sticky
-        top-2
+        top-20
         rounded-2xl
         border-2
         bg-white

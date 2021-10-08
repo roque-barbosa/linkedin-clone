@@ -9,6 +9,7 @@ const Header: React.FC = () => {
       items-center
       justify-evenly
       sticky
+      top-2
       pt-1
       pb-1
       border-b-1

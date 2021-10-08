@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { db } from '../../FirebaseConfig';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { postsUpdateList } from '../../store/actions/posts';
+import FlipMove from 'react-flip-move'
 
 const Feed: React.FC = () => {
 
@@ -39,15 +40,19 @@ const Feed: React.FC = () => {
     '>
       <InputBlock />
 
-      {posts.map((post:any) => (
-        <Post 
-        key={`${post.name}-${post.timestamp}`}
-        name={post.name}
-        description={post.description}
-        message={post.message}
-        photoUrl={post.photoUrl}
-      />
-      ))}
+      <FlipMove>
+        {posts.map((post:any) => (
+          <Post 
+          key={`${post.name}-${post.timestamp}`}
+          name={post.name}
+          description={post.description}
+          message={post.message}
+          photoUrl={post.photoUrl}
+        />
+        ))}
+      </FlipMove>
+
+      
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import PostBody from './PostBody';
 import PostBottom from './PostBottom';
 import Postheader from './PostHeader';
@@ -10,9 +10,9 @@ interface PostProps {
   photoUrl?: string
 }
 
-const Post: React.FC<PostProps> = ({name, description, message, photoUrl}) => {
+const Post: React.FC<PostProps> = forwardRef<HTMLDivElement, PostProps>(({name, description, message, photoUrl}, ref) => {
   return (
-    <div className='
+    <div ref={ref} className='
       border-2
       bg-white
       border-gray-200
@@ -29,5 +29,5 @@ const Post: React.FC<PostProps> = ({name, description, message, photoUrl}) => {
       <PostBottom />
     </div>
   );
-}
+})
 export default Post;
