@@ -1,19 +1,62 @@
+import { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Image from 'next/image';
-import {} from 'firebase/auth';
+import { auth } from '../FirebaseConfig'
+import {
+  createUserWithEmailAndPassword,
+  updateProfile
+} from 'firebase/auth';
+import {
+  useDispatch,
+  useSelector
+} from 'react-redux';
+import { userLogin } from '../store/actions/user';
+import Router from 'next/router';
 
 
 const Login: NextPage = () => {
 
-  const register = (event: React.MouseEvent) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [profilePicUrl, setProfilePicUrl] = useState('');
+
+  const loggedUser = useSelector((state: any)=> state.user);
+  const dispatch = useDispatch();
+
+  const register = async (event: React.MouseEvent) => {
     event.preventDefault();
-    console.log('Hi')
+    if (!name) {
+      alert('Please insert a full name!');
+    }
+    createUserWithEmailAndPassword(auth, email, password)
+    .then(userAuth => {
+      updateProfile(userAuth.user, {
+        displayName: name,
+        photoURL: profilePicUrl
+      })
+      .then(() => {
+        dispatch(userLogin({
+          email: userAuth.user.email,
+          uid: userAuth.user.uid,
+          displayName: name,
+          photoUrl: profilePicUrl
+        }));
+      });
+    })
+    .catch(err => alert(err.message));
   };
   
   const login = (event: React.MouseEvent) => {
     event.preventDefault();
     console.log('Hi')
   };
+
+  useEffect(() => {
+    if (loggedUser) {
+      Router.push('/')
+    }
+  });
 
   return (
     <div className='
@@ -35,21 +78,29 @@ const Login: NextPage = () => {
           flex-col
           '>
           <input
+            value={name}
+            onChange={e => setName(e.target.value)}
             type='text'
             placeholder='Full Name'
             className='loginInput'
           />
           <input
+            value={profilePicUrl}
+            onChange={e => setProfilePicUrl(e.target.value)}
             type='text'
             placeholder='Profile pic URL (Optional)'
             className='loginInput'
           />
           <input
+            value={email}
+            onChange={e => setEmail(e.target.value)}
             type='email'
             placeholder='Email'
             className='loginInput'
           />
           <input
+            value={password}
+            onChange={e => setPassword(e.target.value)}
             type='password'
             placeholder='Password'
             className='loginInput'

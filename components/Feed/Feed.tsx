@@ -5,8 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { db } from '../../FirebaseConfig';
 import { collection, query, orderBy, onSnapshot } from 'firebase/firestore';
 import { postsUpdateList } from '../../store/actions/posts';
-// import { userLogin } from '../../store/actions/user';
-
 
 const Feed: React.FC = () => {
 
@@ -29,13 +27,6 @@ const Feed: React.FC = () => {
         newPosts.push(post.data())
       });
       dispatch(postsUpdateList([...newPosts]))
-      // dispatch(userLogin({
-      //   id: 'roque',
-      //   firstName: 'roque',
-      //   lastName: 'roque',
-      //   fullName: 'roque',
-      //   avatar: 'roque',
-      // }))
     })
 
   }, []);
