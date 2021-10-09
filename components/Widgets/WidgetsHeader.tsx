@@ -8,11 +8,19 @@ const WidgetsHeader: React.FC = () => {
     <div className='
       flex
       items-center
-      justify-between
+      justify-center
       p-3
+      ml-6
+      mr-4
     '>
-      <h2>Linkedin News</h2>
-      <InformationCircleIcon />
+      <h2 className='
+        flex-8
+        font-bold
+        text-xl
+      '>
+        Linkedin News
+      </h2>
+      <InformationCircleIcon className='w-7 h-7 flex-3' />
     </div>
   );
 }
