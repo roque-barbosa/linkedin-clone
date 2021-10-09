@@ -26,6 +26,7 @@ const Postheader: React.FC<PostheaderProps> = ({name, description, avatarUrl}) =
           <Image className='
             rounded-full
             '
+            alt=''
             src={avatarUrl}
             width={28}
             height={28}

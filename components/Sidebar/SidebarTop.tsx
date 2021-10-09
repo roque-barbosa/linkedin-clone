@@ -16,11 +16,13 @@ const SidebarTop: React.FC = () => {
       bg-white
       pb-2
     '>
-      <img
+      <Image
         className='
           -mb-5
           rounded-t-2xl
         '
+        width={70}
+        height={50}
         src="https://www.publicdomainpictures.net/pictures/320000/nahled/background-image.png"
         alt="Perfil Background"
       />
@@ -33,6 +35,7 @@ const SidebarTop: React.FC = () => {
         <Image className='
           rounded-full
           '
+          alt=''
           src={user.photoUrl}
           width={50}
           height={50}

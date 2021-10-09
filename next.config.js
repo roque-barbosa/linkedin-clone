@@ -13,6 +13,7 @@ module.exports = {
       "publicdomainpictures.net",
       "marcas-logos.net",
       "imagens.brasil.elpais.com",
+      "www.publicdomainpictures.net",
     ]
   }
 }
